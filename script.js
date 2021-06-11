@@ -51,7 +51,7 @@ user.address.city = 'San Diego';
 // *** Answer: ***
 // For all purposes in the variable `user`, `address` is a reference to an object, and that reference remains the same throughout the code. We did change one attribute inside the `address` object, but that doesn’t change the reference to the object itself.
 
-('use strict');
+// ('use strict');
 
 Object.freeze(user);
 user.name = 'Barbara';
@@ -59,3 +59,32 @@ user.name = 'Barbara';
 // In strict mode, if we try to modify a frozen object we get a TypeError.
 
 // Uncaught TypeError: Cannot assign to read only property 'name' of object '#<Object>' at <anonymous>:1:27
+
+// *****************************************
+// Question #4: Scopes
+// *****************************************
+
+(function() {
+  const x = (y = 3);
+})();
+
+// Since both `x` and `y` are defined within the enclosing scope of the function both `x` and `y` are actually `undefined` ???
+console.log('y:' + y); //y:3
+console.log('x defined? ' + (typeof x !== 'undefined')); // x defined? false;
+
+console.log('y defined? ' + (typeof y !== 'undefined')); //y defined? true;
+
+// console.log("x: " + x);   //TypeError
+
+// Do you think that:
+// const x = y = 3 is a shorthand for: const x = 3; const y = 3; ???
+
+// What is in fact, *****
+// y = 3;
+// const x = y;
+
+// But still how can `y` be defined outside of the scope of the enclosing function???
+// The trick is that y ends up being a global variable (as is not preceded by let, const or var).
+// But x remains under the enclosing of the function.
+
+// Note that, in strict mode, this will generate a ReferenceError: y is not defined.
