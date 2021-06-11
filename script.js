@@ -64,15 +64,15 @@ user.name = 'Barbara';
 // Question #4: Scopes
 // *****************************************
 
-(function() {
-  const x = (y = 3);
-})();
+// (function() {
+//   const x = (y = 3);
+// })();
 
 // Since both `x` and `y` are defined within the enclosing scope of the function both `x` and `y` are actually `undefined` ???
-console.log('y:' + y); //y:3
-console.log('x defined? ' + (typeof x !== 'undefined')); // x defined? false;
+// console.log('y:' + y); //y:3
+// console.log('x defined? ' + (typeof x !== 'undefined')); // x defined? false;
 
-console.log('y defined? ' + (typeof y !== 'undefined')); //y defined? true;
+// console.log('y defined? ' + (typeof y !== 'undefined')); //y defined? true;
 
 // console.log("x: " + x);   //TypeError
 
