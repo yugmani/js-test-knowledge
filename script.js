@@ -54,7 +54,7 @@ user.address.city = 'San Diego';
 // ('use strict');
 
 Object.freeze(user);
-user.name = 'Barbara';
+// user.name = 'Barbara';
 
 // In strict mode, if we try to modify a frozen object we get a TypeError.
 
