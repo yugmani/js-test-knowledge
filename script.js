@@ -17,3 +17,5 @@ const array2 = ['c', 'b', 'a'];
 
 // For the third output, `array1.sort() === array2.sort()`, even though the elements on each one of the arrays are the same, the === operator will not test the elements of the array but the reference of each object, which in this case is different, and thus returning false.
 // console.log(array1.sort() === array2.sort());   //false
+
+//Reference: https://livecodestream.dev/post/stranger-things-javascript-edition/
