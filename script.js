@@ -88,3 +88,53 @@ console.log('y defined? ' + (typeof y !== 'undefined')); //y defined? true;
 // But x remains under the enclosing of the function.
 
 // Note that, in strict mode, this will generate a ReferenceError: y is not defined.
+
+// *****************************************
+// Question #5: More on closures
+// *****************************************
+
+// What do you think the output would be?
+// for (var i = 0; i < 5; i++) {
+  // setTimeout(function() {
+  //   console.log(i);
+  // }, i * 1000);
+// }
+
+// Output
+// 5
+// 5
+// 5
+// 5
+// 5
+
+// Answer ***
+// each function executed within the loop will be executed after the entire loop has completed and all will, therefore, reference the last value stored in i, which was 5.
+
+// What do you think the output would be? Why
+// for (let i = 0; i < 5; i++) {
+  // setTimeout(function() {
+  //   console.log(i);
+  // }, i * 1000);
+// }
+
+// Output
+//  0
+//  1
+//  2
+//  3
+//  4
+
+// Closures can be used to prevent this problem by creating a unique scope for each iteration, storing each unique value of the variable within its scope, as follows:
+
+// for (var i = 0; i < 5; i++) {
+//     (function(x) {
+//         setTimeout(function() { console.log(x); }, x * 1000 );
+//     })(i);
+// }
+
+// output
+// 0
+// 1
+// 2
+// 3
+// 4
